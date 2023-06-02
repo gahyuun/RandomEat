@@ -9,10 +9,10 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        // screenOptions={{ contentStyle: { backgroundColor: '#ffff' } }}
         initialRouteName='Main'
         screenOptions={{
           headerShown: false,
+          contentStyle: { backgroundColor: '#ffff' },
         }}
       >
         <Stack.Screen name={Routes.MAIN} component={Main} />
