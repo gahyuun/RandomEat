@@ -8,10 +8,10 @@ import {
   Alert,
   Button,
 } from 'react-native';
-import MyButton from '../Components/MyButton';
-import Header from '../Components/Header';
+import MyButton from '../components/MyButton';
 import { useCallback, useRef, useState } from 'react';
-import ItemList from '../Components/ItemList';
+import ItemList from '../components/ItemList';
+import Header from '../components/Header';
 
 export default function Select() {
   const [items, setItems] = useState([]);
