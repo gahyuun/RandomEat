@@ -1,4 +1,5 @@
 export const Routes = {
-  SELECT: 'Select',
-  MAIN: 'Main',
+  SELECTMENU: "SelectMenu",
+  SELECTPERSON: "SelectPerson",
+  MAIN: "Main",
 };

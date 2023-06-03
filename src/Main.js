@@ -1,8 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
-import CategoryMenu from '../components/main/CategoryMenu';
-import { Button, Image, StyleSheet, Text, View } from 'react-native';
-import { Routes } from '../navigator/Routes';
-import RecommendMenu from '../assets/RecommendMenu.png';
+import { useNavigation } from "@react-navigation/native";
+import CategoryMenu from "../components/main/CategoryMenu";
+import { Button, Image, StyleSheet, Text, View } from "react-native";
+import { Routes } from "../navigator/Routes";
+import RecommendMenu from "../assets/RecommendMenu.png";
 
 export default function Main() {
   const navigation = useNavigation();
@@ -17,17 +17,17 @@ export default function Main() {
         <View style={styles.recommendContainer}>
           <View
             style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexDirection: 'row',
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "row",
             }}
           >
             <View
               style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
               <Text style={[styles.weatherText, styles.color]}>26℃</Text>
@@ -39,7 +39,7 @@ export default function Main() {
                   marginTop: 20,
                 }}
               >
-                오늘 같은 더운 날씨 {'\n'}빙수 어떤가요?
+                오늘 같은 더운 날씨 {"\n"}빙수 어떤가요?
               </Text>
             </View>
             <Image source={RecommendMenu}></Image>
@@ -50,9 +50,9 @@ export default function Main() {
       <CategoryMenu></CategoryMenu>
       {/* 카테고리별 메뉴 추천 */}
       <Button
-        title='룰렛 돌리러 가기'
+        title="룰렛 돌리러 가기"
         onPress={() => {
-          navigation.navigate(Routes.SELECT);
+          navigation.navigate(Routes.SELECTMENU);
         }}
       ></Button>
     </View>
@@ -60,16 +60,16 @@ export default function Main() {
 }
 const styles = StyleSheet.create({
   color: {
-    color: '#693894',
+    color: "#693894",
   },
   headerText: {
     fontSize: 25,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginTop: 60,
     marginLeft: 40,
   },
   recommendContainer: {
-    backgroundColor: '#F6F3FF',
+    backgroundColor: "#F6F3FF",
     borderRadius: 40,
     width: 341,
     height: 187,
