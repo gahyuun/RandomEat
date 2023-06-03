@@ -6,17 +6,16 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
-  Button,
-} from 'react-native';
-import MyButton from '../components/MyButton';
-import { useCallback, useRef, useState } from 'react';
-import ItemList from '../components/ItemList';
-import Header from '../components/Header';
+} from "react-native";
+import MyButton from "../components/MyButton";
+import { useCallback, useRef, useState } from "react";
+import ItemList from "../components/ItemList";
+import Header from "../components/Header";
 
-export default function Select() {
+export default function SelectMenu() {
   const [items, setItems] = useState([]);
 
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
 
   const nextId = useRef(3);
 
@@ -28,7 +27,7 @@ export default function Select() {
       };
       setItems(items.concat(item));
       nextId.current++;
-      setText('');
+      setText("");
     },
     [items]
   );
@@ -37,8 +36,8 @@ export default function Select() {
     items.length < 6
       ? text.length !== 0
         ? create(text)
-        : Alert.alert('주의', '값을 입력해주세요.', [{ text: 'OK' }])
-      : Alert.alert('주의', '최대 6개까지 입력 가능합니다.', [{ text: 'OK' }]);
+        : Alert.alert("주의", "값을 입력해주세요.", [{ text: "OK" }])
+      : Alert.alert("주의", "최대 6개까지 입력 가능합니다.", [{ text: "OK" }]);
   };
 
   const onRemove = useCallback(
@@ -49,7 +48,7 @@ export default function Select() {
   );
 
   const onReset = () => {
-    setText('');
+    setText("");
   };
 
   return (
@@ -61,23 +60,23 @@ export default function Select() {
       <View style={{ marginTop: 65, marginLeft: 25 }}>
         <Header />
       </View>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <View>
           <Text style={styles.headerText}>오늘 뭐 먹지?</Text>
         </View>
-        <View style={{ flexDirection: 'row' }}>
+        <View style={{ flexDirection: "row" }}>
           <TextInput
             style={styles.inputText}
-            placeholder='메뉴를 입력해주세요'
+            placeholder="메뉴를 입력해주세요"
             value={text}
             onChangeText={(text) => setText(text)}
           />
           <TouchableOpacity
             style={{
-              backgroundColor: '#693894',
+              backgroundColor: "#693894",
               padding: 20,
               borderRadius: 20,
-              alignItems: 'center',
+              alignItems: "center",
               shadowOffset: {
                 width: 0,
                 height: 2,
@@ -100,17 +99,17 @@ export default function Select() {
             marginBottom: 40,
             height: 390,
             width: 350,
-            alignItems: 'center',
+            alignItems: "center",
           }}
         >
           <ScrollView>
-            <View style={{ width: 350, alignItems: 'center' }}>
+            <View style={{ width: 350, alignItems: "center" }}>
               <ItemList items={items} onRemove={onRemove} />
             </View>
           </ScrollView>
         </View>
         <View>
-          <MyButton title='작성완료'></MyButton>
+          <MyButton title="작성완료"></MyButton>
         </View>
       </View>
     </View>
@@ -119,14 +118,14 @@ export default function Select() {
 
 const styles = StyleSheet.create({
   headerText: {
-    alignItems: 'center',
+    alignItems: "center",
     fontSize: 35,
-    fontWeight: 'bold',
-    color: '#693894',
+    fontWeight: "bold",
+    color: "#693894",
     marginBottom: 30,
   },
   inputText: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     width: 210,
     height: 63,
     borderRadius: 20,
@@ -141,14 +140,14 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
   },
   text: {
-    color: '#cdcccc',
+    color: "#cdcccc",
     fontSize: 12,
     marginTop: 8,
     marginRight: 130,
   },
   button: {
-    backgroundColor: '#693894',
-    color: '#ffffff',
+    backgroundColor: "#693894",
+    color: "#ffffff",
     borderRadius: 20,
     fontSize: 18,
   },
