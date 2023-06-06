@@ -6,10 +6,11 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
+  Keyboard,
 } from "react-native";
-import MyButton from "../components/MyButton";
+import MyButton from "../components/select/MyButton";
 import { useCallback, useRef, useState } from "react";
-import ItemList from "../components/ItemList";
+import ItemList from "../components/select/ItemList";
 import Header from "../components/Header";
 
 export default function SelectMenu() {
@@ -85,7 +86,7 @@ export default function SelectMenu() {
               shadowRadius: 4,
             }}
             onPress={() => {
-              onCreate(text), onReset();
+              onCreate(text), onReset(), Keyboard.dismiss();
             }}
           >
             <Text style={styles.button}>add</Text>

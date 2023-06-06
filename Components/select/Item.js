@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { WithLocalSvg } from "react-native-svg";
-import binIcon from "../assets/binIcon.svg";
+import binIcon from "../../assets/binIcon.svg";
 
 export default function Item({ item, onRemove }) {
   const { id, text } = item;
