@@ -1,11 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
-import CategoryMenu from '../components/main/categoryMenu';
+import CategoryMenu from '../components/main/CategoryMenu';
 import {
   Button,
   Image,
   ScrollView,
   StyleSheet,
   Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import { Routes } from '../navigator/Routes';
@@ -70,16 +71,36 @@ export default function Main() {
       {/* 카테고리별 메뉴 추천 */}
       <View
         style={{
-          height: 500,
+          height: 400,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
         <CarouselMenu menu={menu}></CarouselMenu>
-        <Button
-          title='룰렛 돌리러 가기'
-          onPress={() => {
-            navigation.navigate(Routes.SELECTMENU);
+        <TouchableOpacity
+          style={{
+            backgroundColor: '#693894',
+            width: 350,
+            height: 50,
+            borderRadius: 20,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            // shadowOffset: {
+            //   width: 0,
+            //   height: 2,
+            // },
+            // shadowOpacity: 0.25,
+            // shadowRadius: 4,
           }}
-        ></Button>
+          onPress={() => {
+            navigation.navigate(Routes.SELECTROULETTE);
+          }}
+        >
+          <Text style={styles.button}>룰렛 돌리러 가기</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -98,9 +119,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#F6F3FF',
     borderRadius: 40,
     width: 341,
-    height: 187,
+    height: 183,
     marginLeft: 25,
-    marginTop: 20,
+    marginTop: 17,
   },
   weatherText: {
     fontWeight: 700,
@@ -111,5 +132,10 @@ const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: 'pink',
     marginHorizontal: 20,
+  },
+  button: {
+    backgroundColor: '#693894',
+    color: '#ffffff',
+    fontSize: 18,
   },
 });
