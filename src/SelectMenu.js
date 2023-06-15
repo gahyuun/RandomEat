@@ -8,9 +8,9 @@ import {
   Alert,
   Keyboard,
 } from "react-native";
-import MyButton from "../components/select/MyButton";
+import MyButton from "../components/input/MyButton";
 import { useCallback, useRef, useState } from "react";
-import ItemList from "../components/select/ItemList";
+import ItemList from "../components/input/ItemList";
 import Header from "../components/Header";
 
 export default function SelectMenu() {
