@@ -116,9 +116,11 @@ export default function SelectMenu() {
         <View>
           <MyButton
             title="작성완료"
-            onPress={() => {
-              navigation.navigate(Routes.ROULETTE);
-            }}
+            onPress={() =>
+              items.length < 1
+                ? Alert.alert("주의", "값을 입력해주세요.", [{ text: "OK" }])
+                : navigation.navigate(Routes.ROULETTE)
+            }
           ></MyButton>
         </View>
       </View>
