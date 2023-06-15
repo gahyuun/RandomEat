@@ -52,7 +52,7 @@ export default function Main() {
       <Button
         title="룰렛 돌리러 가기"
         onPress={() => {
-          navigation.navigate(Routes.SELECTMENU);
+          navigation.navigate(Routes.SELECTROULETTE);
         }}
       ></Button>
     </View>
