@@ -1,5 +1,4 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import { Routes } from "../../navigator/Routes";
 
 export default function MyButton(props) {
   return (

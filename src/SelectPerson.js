@@ -12,8 +12,11 @@ import MyButton from "../components/input/MyButton";
 import { useCallback, useRef, useState } from "react";
 import ItemList from "../components/input/ItemList";
 import Header from "../components/Header";
+import { useNavigation } from "@react-navigation/native";
+import { Routes } from "../navigator/Routes";
 
 export default function SelectPerson() {
+  const navigation = useNavigation();
   const [items, setItems] = useState([]);
 
   const [text, setText] = useState("");
@@ -110,7 +113,12 @@ export default function SelectPerson() {
           </ScrollView>
         </View>
         <View>
-          <MyButton title="작성완료"></MyButton>
+          <MyButton
+            title="작성완료"
+            onPress={() => {
+              navigation.navigate(Routes.ROULETTE);
+            }}
+          ></MyButton>
         </View>
       </View>
     </View>
