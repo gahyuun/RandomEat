@@ -12,8 +12,12 @@ import MyButton from "../components/input/MyButton";
 import { useCallback, useRef, useState } from "react";
 import ItemList from "../components/input/ItemList";
 import Header from "../components/Header";
+import { useNavigation } from "@react-navigation/native";
+import { Routes } from "../navigator/Routes";
 
 export default function SelectMenu() {
+  const navigation = useNavigation();
+
   const [items, setItems] = useState([]);
 
   const [text, setText] = useState("");
@@ -110,7 +114,14 @@ export default function SelectMenu() {
           </ScrollView>
         </View>
         <View>
-          <MyButton title="작성완료"></MyButton>
+          <MyButton
+            title="작성완료"
+            onPress={() =>
+              items.length < 1
+                ? Alert.alert("주의", "값을 입력해주세요.", [{ text: "OK" }])
+                : navigation.navigate(Routes.ROULETTE)
+            }
+          ></MyButton>
         </View>
       </View>
     </View>

@@ -68,11 +68,9 @@ export default function Main() {
       {/* 프로젝트명 및 추천 메뉴 */}
       <CategoryMenu menu={menu} setMenu={setMenu}></CategoryMenu>
       {/* 카테고리별 메뉴 추천 */}
-      <View
+      {/* <View
         style={{
           height: 500,
-        }}
-      >
         <CarouselMenu menu={menu}></CarouselMenu>
         <Button
           title='룰렛 돌리러 가기'
@@ -80,7 +78,7 @@ export default function Main() {
             navigation.navigate(Routes.SELECTMENU);
           }}
         ></Button>
-      </View>
+      </View> */}
     </View>
   );
 }

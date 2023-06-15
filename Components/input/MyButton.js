@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-export default function MyButton(props, onCreate) {
+export default function MyButton(props) {
   return (
     <TouchableOpacity
       style={{
@@ -15,6 +15,7 @@ export default function MyButton(props, onCreate) {
         shadowOpacity: 0.25,
         shadowRadius: 4,
       }}
+      onPress={props.onPress}
     >
       <Text style={styles.button}>{props.title}</Text>
     </TouchableOpacity>
