@@ -1,5 +1,5 @@
-import { useNavigation } from '@react-navigation/native';
-import CategoryMenu from '../components/main/CategoryMenu';
+import { useNavigation } from "@react-navigation/native";
+import CategoryMenu from "../components/main/CategoryMenu";
 import {
   Button,
   Image,
@@ -8,13 +8,13 @@ import {
   Text,
   TouchableOpacity,
   View,
-} from 'react-native';
-import { Routes } from '../navigator/Routes';
-import RecommendMenu from '../assets/RecommendMenu.png';
-import { Dimensions } from 'react-native';
-import { SafeAreaView } from 'react-native-web';
-import CarouselMenu from '../components/main/CarouselMenu';
-import { useState } from 'react';
+} from "react-native";
+import { Routes } from "../navigator/Routes";
+import RecommendMenu from "../assets/RecommendMenu.png";
+import { Dimensions } from "react-native";
+import { SafeAreaView } from "react-native-web";
+import CarouselMenu from "../components/main/CarouselMenu";
+import { useState } from "react";
 
 export default function Main() {
   const [menu, setMenu] = useState({
@@ -34,37 +34,43 @@ export default function Main() {
     >
       <View>
         <Text style={[styles.headerText, styles.color]}>RANDOM EAT</Text>
-        <View style={styles.recommendContainer}>
-          <View
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              flexDirection: 'row',
-            }}
-          >
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate(Routes.WEATHER);
+          }}
+        >
+          <View style={styles.recommendContainer}>
             <View
               style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "row",
               }}
             >
-              <Text style={[styles.weatherText, styles.color]}>26℃</Text>
-              <Text
+              <View
                 style={{
-                  fontWeight: 400,
-                  fontSize: 20,
-                  marginLeft: 30,
-                  marginTop: 20,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
               >
-                오늘 같은 더운 날씨 {'\n'}빙수 어떤가요?
-              </Text>
+                <Text style={[styles.weatherText, styles.color]}>26℃</Text>
+                <Text
+                  style={{
+                    fontWeight: 400,
+                    fontSize: 20,
+                    marginLeft: 30,
+                    marginTop: 20,
+                  }}
+                >
+                  오늘 같은 더운 날씨 {"\n"}빙수 어떤가요?
+                </Text>
+              </View>
+              <Image source={RecommendMenu}></Image>
             </View>
-            <Image source={RecommendMenu}></Image>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
       {/* 프로젝트명 및 추천 메뉴 */}
       <CategoryMenu menu={menu} setMenu={setMenu}></CategoryMenu>
@@ -72,22 +78,22 @@ export default function Main() {
       <View
         style={{
           height: 400,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <CarouselMenu menu={menu}></CarouselMenu>
         <TouchableOpacity
           style={{
-            backgroundColor: '#693894',
+            backgroundColor: "#693894",
             width: 350,
             height: 50,
             borderRadius: 20,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             // shadowOffset: {
             //   width: 0,
             //   height: 2,
@@ -107,16 +113,16 @@ export default function Main() {
 }
 const styles = StyleSheet.create({
   color: {
-    color: '#693894',
+    color: "#693894",
   },
   headerText: {
     fontSize: 25,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginTop: 60,
     marginLeft: 40,
   },
   recommendContainer: {
-    backgroundColor: '#F6F3FF',
+    backgroundColor: "#F6F3FF",
     borderRadius: 40,
     width: 341,
     height: 183,
@@ -130,12 +136,12 @@ const styles = StyleSheet.create({
   },
 
   scrollView: {
-    backgroundColor: 'pink',
+    backgroundColor: "pink",
     marginHorizontal: 20,
   },
   button: {
-    backgroundColor: '#693894',
-    color: '#ffffff',
+    backgroundColor: "#693894",
+    color: "#ffffff",
     fontSize: 18,
   },
 });
