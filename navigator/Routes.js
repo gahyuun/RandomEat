@@ -5,4 +5,5 @@ export const Routes = {
   SELECTROULETTE: "SelectRoulette",
   RESULT: "Result",
   ROULETTE: "Roulette",
+  WEATHER: "WeatherMenu",
 };

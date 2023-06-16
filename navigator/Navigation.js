@@ -7,6 +7,7 @@ import SelectRoulette from "../src/SelectRoulette";
 import SelectPerson from "../src/SelectPerson";
 import Result from "../src/Result";
 import Roulette from "../src/Roulette";
+import WeatherMenu from "../src/WeatherMenu";
 
 const Stack = createNativeStackNavigator();
 const Navigation = () => {
@@ -25,6 +26,7 @@ const Navigation = () => {
         <Stack.Screen name={Routes.SELECTPERSON} component={SelectPerson} />
         <Stack.Screen name={Routes.RESULT} component={Result} />
         <Stack.Screen name={Routes.ROULETTE} component={Roulette} />
+        <Stack.Screen name={Routes.WEATHER} component={WeatherMenu} />
       </Stack.Navigator>
     </NavigationContainer>
   );
