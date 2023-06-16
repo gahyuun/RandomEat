@@ -1,11 +1,14 @@
 import { StatusBar } from 'react-native';
 import Navigation from './navigator/Navigation';
+import { RecoilRoot } from 'recoil';
 
 export default function App() {
   return (
     <>
-      <StatusBar style='dark' />
-      <Navigation />
+      <RecoilRoot>
+        <StatusBar style='dark' />
+        <Navigation />
+      </RecoilRoot>
     </>
   );
 }
