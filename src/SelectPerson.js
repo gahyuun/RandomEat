@@ -7,19 +7,21 @@ import {
   TouchableOpacity,
   Alert,
   Keyboard,
-} from "react-native";
-import MyButton from "../components/input/MyButton";
-import { useCallback, useRef, useState } from "react";
-import ItemList from "../components/input/ItemList";
-import Header from "../components/Header";
-import { useNavigation } from "@react-navigation/native";
-import { Routes } from "../navigator/Routes";
+} from 'react-native';
+import MyButton from '../components/input/MyButton';
+import { useCallback, useRef, useState } from 'react';
+import ItemList from '../components/input/ItemList';
+import Header from '../components/Header';
+import { useNavigation } from '@react-navigation/native';
+import { Routes } from '../navigator/Routes';
+import { useRecoilState } from 'recoil';
+import { itemState } from '../state';
 
 export default function SelectPerson() {
   const navigation = useNavigation();
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useRecoilState(itemState);
 
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
 
   const nextId = useRef(3);
 
@@ -31,7 +33,7 @@ export default function SelectPerson() {
       };
       setItems(items.concat(item));
       nextId.current++;
-      setText("");
+      setText('');
     },
     [items]
   );
@@ -40,8 +42,8 @@ export default function SelectPerson() {
     items.length < 6
       ? text.length !== 0
         ? create(text)
-        : Alert.alert("주의", "값을 입력해주세요.", [{ text: "OK" }])
-      : Alert.alert("주의", "최대 6명까지 입력 가능합니다.", [{ text: "OK" }]);
+        : Alert.alert('주의', '값을 입력해주세요.', [{ text: 'OK' }])
+      : Alert.alert('주의', '최대 6명까지 입력 가능합니다.', [{ text: 'OK' }]);
   };
 
   const onRemove = useCallback(
@@ -52,7 +54,7 @@ export default function SelectPerson() {
   );
 
   const onReset = () => {
-    setText("");
+    setText('');
   };
 
   return (
@@ -64,23 +66,23 @@ export default function SelectPerson() {
       <View style={{ marginTop: 65, marginLeft: 25 }}>
         <Header />
       </View>
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <View>
           <Text style={styles.headerText}>누가 결제하지?</Text>
         </View>
-        <View style={{ flexDirection: "row" }}>
+        <View style={{ flexDirection: 'row' }}>
           <TextInput
             style={styles.inputText}
-            placeholder="결제할 사람을 입력해주세요"
+            placeholder='결제할 사람을 입력해주세요'
             value={text}
             onChangeText={(text) => setText(text)}
           />
           <TouchableOpacity
             style={{
-              backgroundColor: "#693894",
+              backgroundColor: '#693894',
               padding: 20,
               borderRadius: 20,
-              alignItems: "center",
+              alignItems: 'center',
               shadowOffset: {
                 width: 0,
                 height: 2,
@@ -103,21 +105,21 @@ export default function SelectPerson() {
             marginBottom: 40,
             height: 390,
             width: 350,
-            alignItems: "center",
+            alignItems: 'center',
           }}
         >
           <ScrollView>
-            <View style={{ width: 350, alignItems: "center" }}>
+            <View style={{ width: 350, alignItems: 'center' }}>
               <ItemList items={items} onRemove={onRemove} />
             </View>
           </ScrollView>
         </View>
         <View>
           <MyButton
-            title="작성완료"
+            title='작성완료'
             onPress={() =>
               items.length < 1
-                ? Alert.alert("주의", "값을 입력해주세요.", [{ text: "OK" }])
+                ? Alert.alert('주의', '값을 입력해주세요.', [{ text: 'OK' }])
                 : navigation.navigate(Routes.ROULETTE)
             }
           ></MyButton>
@@ -129,14 +131,14 @@ export default function SelectPerson() {
 
 const styles = StyleSheet.create({
   headerText: {
-    alignItems: "center",
+    alignItems: 'center',
     fontSize: 35,
-    fontWeight: "bold",
-    color: "#693894",
+    fontWeight: 'bold',
+    color: '#693894',
     marginBottom: 30,
   },
   inputText: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     width: 210,
     height: 63,
     borderRadius: 20,
@@ -151,14 +153,14 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
   },
   text: {
-    color: "#cdcccc",
+    color: '#cdcccc',
     fontSize: 12,
     marginTop: 8,
     marginRight: 130,
   },
   button: {
-    backgroundColor: "#693894",
-    color: "#ffffff",
+    backgroundColor: '#693894',
+    color: '#ffffff',
     borderRadius: 20,
     fontSize: 18,
   },
