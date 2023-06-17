@@ -53,7 +53,13 @@ export default function CategoryMenu({ menu, setMenu }) {
               />
             </Svg>
           </TouchableHighlight>
-          <Text style={[styles.text, menu.korean ? styles.color : styles.gray]}>
+          <Text
+            style={[
+              styles.text,
+              menu.korean ? styles.color : styles.gray,
+              { marginLeft: 7 },
+            ]}
+          >
             한식
           </Text>
         </View>
@@ -126,7 +132,11 @@ export default function CategoryMenu({ menu, setMenu }) {
             </Svg>
           </TouchableHighlight>
           <Text
-            style={[styles.text, menu.chinese ? styles.color : styles.gray]}
+            style={[
+              styles.text,
+              menu.chinese ? styles.color : styles.gray,
+              { marginLeft: 5 },
+            ]}
           >
             중식
           </Text>
