@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { WithLocalSvg } from "react-native-svg";
-import binIcon from "../../assets/binIcon.svg";
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { WithLocalSvg } from 'react-native-svg';
+import binIcon from '../../assets/binIcon.svg';
+import { useRecoilState } from 'recoil';
 
 export default function Item({ item, onRemove }) {
   const { id, text } = item;
@@ -20,11 +21,11 @@ export default function Item({ item, onRemove }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     width: 278,
     height: 66,
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginTop: 30,
     borderRadius: 20,
     shadowOffset: {

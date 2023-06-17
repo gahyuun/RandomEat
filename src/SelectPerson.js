@@ -46,13 +46,6 @@ export default function SelectPerson() {
       : Alert.alert('주의', '최대 6명까지 입력 가능합니다.', [{ text: 'OK' }]);
   };
 
-  const onRemove = useCallback(
-    (id) => {
-      setItems(items.filter((item) => item.id !== id));
-    },
-    [items]
-  );
-
   const onReset = () => {
     setText('');
   };
@@ -110,7 +103,7 @@ export default function SelectPerson() {
         >
           <ScrollView>
             <View style={{ width: 350, alignItems: 'center' }}>
-              <ItemList items={items} onRemove={onRemove} />
+              <ItemList />
             </View>
           </ScrollView>
         </View>
