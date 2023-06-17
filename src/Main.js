@@ -61,10 +61,10 @@ export default function Main() {
                     fontWeight: 400,
                     fontSize: 20,
                     marginLeft: 30,
-                    marginTop: 20,
+                    marginTop: 10,
                   }}
                 >
-                  오늘 같은 더운 날씨 {"\n"}빙수 어떤가요?
+                  오늘 같은 더운 날씨, {"\n"}빙수는 어떨까요?
                 </Text>
               </View>
               <Image source={RecommendMenu}></Image>
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold",
     marginTop: 60,
-    marginLeft: 40,
+    marginLeft: 25,
   },
   recommendContainer: {
     backgroundColor: "#F6F3FF",
@@ -128,11 +128,18 @@ const styles = StyleSheet.create({
     height: 183,
     marginLeft: 25,
     marginTop: 17,
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    borderRadius: 20,
   },
   weatherText: {
     fontWeight: 700,
     fontSize: 48,
-    marginTop: 20,
+    marginTop: 30,
   },
 
   scrollView: {
