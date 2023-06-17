@@ -58,8 +58,7 @@ export default function Roulette() {
         style={{
           fontWeight: 700,
           fontSize: 30,
-          color: '#693894',
-          marginBottom: 100,
+          marginBottom: 70,
         }}
       >
         룰렛을 돌려주세요

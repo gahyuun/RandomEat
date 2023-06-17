@@ -51,10 +51,13 @@ export default function CarouselMenu({ menu }) {
         borderWidth: 1,
         borderColor: '#EBEBEB',
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.25,
-        shadowRadius: 1,
         elevation: 2, // for Android
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
         borderRadius: 20,
         display: 'flex',
         flexDirection: 'column',
