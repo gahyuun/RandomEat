@@ -8,49 +8,35 @@ import { Routes } from '../navigator/Routes';
 
 export default function Roulette() {
   const navigation = useNavigation();
-
   const [currentText, setCurrentText] = useState('룰렛');
   const [color, setColor] = useState('#BFA2D8');
-  const [start, setStart] = useState(false);
   const Items = useRecoilValue(itemState);
   const [modalVisible, setModalVisible] = useState(false);
-  const [item, setItem] = useRecoilState(itemState);
   const [result, setResult] = useRecoilState(resultState);
 
-  useEffect(() => {
-    if (start) {
-      let intervalId;
-      const start = Date.now();
-      const end = start + 5000;
+  const startRoulette = () => {
+    let intervalId;
+    const start = Date.now();
+    const end = start + Math.random() * (6000 - 5000) + 6000;
 
-      const cycleTexts = () => {
-        const elapsed = Date.now() - start;
-        const index = Math.floor((elapsed / 500) % Items.length);
+    const cycleTexts = () => {
+      const elapsed = Date.now() - start;
+      const index = Math.floor((elapsed / 500) % Items.length);
+      setCurrentText(Items[index].text);
+      setColor(colorItems[index]);
+
+      if (Date.now() >= end) {
+        clearInterval(intervalId);
         setCurrentText(Items[index].text);
         setColor(colorItems[index]);
-
-        if (Date.now() >= end) {
-          clearInterval(intervalId);
-          setCurrentText(Items[index].text);
-          setColor(colorItems[index]);
-          setItem([]);
-          setTimeout(() => {
-            setModalVisible(true);
-            setResult(Items[index].text);
-          }, 1000);
-
-          //룰렛 입력 값 비우기 , modal 보이게
-        }
-      };
-
-      intervalId = setInterval(cycleTexts, 10);
-
-      return () => clearInterval(intervalId);
-    }
-  }, [start]);
-
-  const startRoulette = () => {
-    setStart(true);
+        setTimeout(() => {
+          setModalVisible(true);
+          setResult(Items[index].text);
+        }, 1000);
+      }
+    };
+    intervalId = setInterval(cycleTexts, 10);
+    return () => clearInterval(intervalId);
   };
 
   const colorItems = [

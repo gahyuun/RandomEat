@@ -2,12 +2,13 @@ import MyButton from '../components/input/MyButton';
 import { useNavigation } from '@react-navigation/native';
 import { Routes } from '../navigator/Routes';
 import { View, Text } from 'react-native';
-import { useRecoilValue } from 'recoil';
-import { resultState } from '../state';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { itemState, resultState } from '../state';
 
 export default function Result() {
   const navigation = useNavigation();
   const result = useRecoilValue(resultState);
+  const [items, setItems] = useRecoilState(itemState);
   return (
     <View>
       {/**룰렛 완성되면 진짜 데이터 받아와야 함 */}
@@ -24,6 +25,7 @@ export default function Result() {
           <MyButton
             title='만족해요'
             onPress={() => {
+              setItems([]);
               navigation.navigate(Routes.MAIN);
             }}
           />
