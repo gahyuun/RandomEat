@@ -13,6 +13,9 @@ import udon from '../../assets/japanese_udon.png';
 import cake from '../../assets/dessert_cake.png';
 import macaron from '../../assets/dessert_macaron.png';
 import muffin from '../../assets/dessert_muffin.png';
+import beef from '../../assets/night_beef.png';
+import foot from '../../assets/night_foot.png';
+import chicken from '../../assets/night_chicken.png';
 import { Image, Text, View } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 
@@ -42,6 +45,11 @@ export default function CarouselMenu({ menu }) {
     { title: '머핀', image: muffin },
     { title: '마카롱', image: macaron },
   ];
+  const nightItems = [
+    { title: '치킨', image: chicken },
+    { title: '닭발', image: foot },
+    { title: '곱창', image: beef },
+  ];
   const renderItem = ({ item }) => (
     <View
       style={{
@@ -54,7 +62,7 @@ export default function CarouselMenu({ menu }) {
         elevation: 2, // for Android
         shadowOffset: {
           width: 0,
-          height: 2,
+          height: 4,
         },
         shadowOpacity: 0.25,
         shadowRadius: 4,
@@ -121,6 +129,14 @@ export default function CarouselMenu({ menu }) {
       {menu.dessert && (
         <Carousel
           data={dessertItems}
+          renderItem={renderItem}
+          sliderWidth={300}
+          itemWidth={250}
+        />
+      )}
+      {menu.night && (
+        <Carousel
+          data={nightItems}
           renderItem={renderItem}
           sliderWidth={300}
           itemWidth={250}
