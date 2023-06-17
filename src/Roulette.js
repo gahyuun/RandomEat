@@ -1,7 +1,7 @@
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
-import { itemState } from '../state';
+import { itemState, resultState } from '../state';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import Modal from 'react-native-modal';
 import { Routes } from '../navigator/Routes';
@@ -13,7 +13,9 @@ export default function Roulette() {
   const [color, setColor] = useState('#BFA2D8');
   const [start, setStart] = useState(false);
   const Items = useRecoilValue(itemState);
+  const [modalVisible, setModalVisible] = useState(false);
   const [item, setItem] = useRecoilState(itemState);
+  const [result, setResult] = useRecoilState(resultState);
 
   useEffect(() => {
     if (start) {
@@ -32,6 +34,12 @@ export default function Roulette() {
           setCurrentText(Items[index].text);
           setColor(colorItems[index]);
           setItem([]);
+          setTimeout(() => {
+            setModalVisible(true);
+            setResult(Items[index].text);
+          }, 1000);
+
+          //룰렛 입력 값 비우기 , modal 보이게
         }
       };
 
@@ -57,57 +65,61 @@ export default function Roulette() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       {/* 모달 */}
-      <Modal isVisible={true}>
-        <View
-          style={{
-            backgroundColor: '#EDE7FF',
-            width: 350,
-            height: 278,
-            borderRadius: 20,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: 35,
-          }}
-        >
-          <Text style={{ fontWeight: 800, fontSize: 35, color: '#693894' }}>
-            당첨!
-          </Text>
-          <Text style={{ fontWeight: 800, fontSize: 40 }}>박가현</Text>
-          <TouchableOpacity
+      {modalVisible && (
+        <Modal isVisible={true}>
+          <View
             style={{
-              backgroundColor: '#693894',
-              width: 100,
-              height: 50,
+              backgroundColor: '#EDE7FF',
+              width: 350,
+              height: 278,
               borderRadius: 20,
               display: 'flex',
-              alignItems: 'center',
               justifyContent: 'center',
-              shadowColor: '#ebebeb',
-              shadowOffset: {
-                width: 0,
-                height: 2,
-              },
-              shadowOpacity: 0.25,
-              shadowRadius: 4,
-            }}
-            onPress={() => {
-              navigation.navigate(Routes.RESULT);
+              alignItems: 'center',
+              gap: 35,
             }}
           >
-            <Text
+            <Text style={{ fontWeight: 800, fontSize: 35, color: '#693894' }}>
+              당첨!
+            </Text>
+            <Text style={{ fontWeight: 800, fontSize: 40 }}>{result}</Text>
+            <TouchableOpacity
               style={{
                 backgroundColor: '#693894',
-                color: '#ffffff',
-                fontSize: 20,
-                fontWeight: 500,
+                width: 100,
+                height: 50,
+                borderRadius: 20,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                shadowColor: '#ebebeb',
+                shadowOffset: {
+                  width: 0,
+                  height: 2,
+                },
+                shadowOpacity: 0.25,
+                shadowRadius: 4,
+              }}
+              onPress={() => {
+                setModalVisible(false);
+                navigation.navigate(Routes.RESULT);
               }}
             >
-              확인
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </Modal>
+              <Text
+                style={{
+                  backgroundColor: '#693894',
+                  color: '#ffffff',
+                  fontSize: 20,
+                  fontWeight: 500,
+                }}
+              >
+                확인
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </Modal>
+      )}
+
       {/* 룰렛 화면 */}
       <Text
         style={{
