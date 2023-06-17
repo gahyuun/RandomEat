@@ -3,10 +3,11 @@
     "name": "blank",
     "slug": "blank",
     "version": "1.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ]
+    "platforms": ["ios", "android", "web"],
+    "splash": {
+      "image": "./assets/loading.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#693894"
+    }
   }
 }
