@@ -4,3 +4,8 @@ export const itemState = atom({
   key: 'itemState', // unique ID (다른 atoms/selectors을 구별하기 위해서)
   default: [],
 });
+
+export const resultState = atom({
+  key: 'resultState',
+  default: '',
+});
