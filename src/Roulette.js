@@ -8,6 +8,7 @@ import { Routes } from '../navigator/Routes';
 
 export default function Roulette() {
   const navigation = useNavigation();
+  const [btnVisible, setBtnVisible] = useState(true);
   const [currentText, setCurrentText] = useState('룰렛');
   const [color, setColor] = useState('#BFA2D8');
   const Items = useRecoilValue(itemState);
@@ -15,6 +16,7 @@ export default function Roulette() {
   const [result, setResult] = useRecoilState(resultState);
 
   const startRoulette = () => {
+    setBtnVisible(false);
     let intervalId;
     const start = Date.now();
     const end = start + Math.random() * (6000 - 5000) + 6000;
@@ -32,6 +34,7 @@ export default function Roulette() {
         setTimeout(() => {
           setModalVisible(true);
           setResult(Items[index].text);
+          setBtnVisible(true);
         }, 1000);
       }
     };
@@ -150,6 +153,7 @@ export default function Roulette() {
           </View>
         </View>
       </View>
+
       <TouchableOpacity
         style={{
           backgroundColor: '#693894',
@@ -166,10 +170,17 @@ export default function Roulette() {
           // shadowOpacity: 0.25,
           // shadowRadius: 4,
         }}
-        onPress={startRoulette}
+        onPress={() => {
+          console.log(btnVisible);
+          btnVisible === true ? startRoulette() : () => {};
+        }}
       >
         <Text
-          style={{ backgroundColor: '#693894', color: '#ffffff', fontSize: 18 }}
+          style={{
+            backgroundColor: '#693894',
+            color: '#ffffff',
+            fontSize: 18,
+          }}
         >
           룰렛 돌리기
         </Text>
