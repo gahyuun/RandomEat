@@ -21,34 +21,82 @@ import Carousel from "react-native-snap-carousel";
 
 export default function CarouselMenu({ menu }) {
   const koreanItems = [
-    { title: "순두부찌개", image: koreanTofu },
-    { title: "비빔밥", image: koreanBibim },
-    { title: "불고기", image: koreanBulgogi },
+    {
+      title: "순두부찌개",
+      image: koreanTofu,
+      ex: "모두의 입맛을 사로잡을 따끈따끈 매콤한 순두부찌개",
+    },
+    {
+      title: "비빔밥",
+      image: koreanBibim,
+      ex: "신선한 야채, 고소한 고기, 매콤한 소스가 조화롭게 어우러진 든든한 식사",
+    },
+    {
+      title: "불고기",
+      image: koreanBulgogi,
+      ex: "입안 가득 퍼지는 고소하고 달콤한 소스와 고기의 조화",
+    },
   ];
   const westernItems = [
-    { title: "피자", image: westernPizza },
-    { title: "파스타", image: westernPasta },
-    { title: "스테이크", image: westernSteak },
+    { title: "피자", image: westernPizza, ex: "피자먹고 인생피자" },
+    {
+      title: "파스타",
+      image: westernPasta,
+      ex: "내 안에 스타가 있다면, 그건 바로 파스타",
+    },
+    {
+      title: "스테이크",
+      image: westernSteak,
+      ex: "절로 웃음이 나요 스테이크크크크 크크크크",
+    },
   ];
   const chineseItems = [
-    { title: "짜장면", image: chineseJjajang },
-    { title: "짬뽕", image: chinesejjambong },
-    { title: "딤섬", image: chineseDimsum },
+    { title: "짜장면", image: chineseJjajang, ex: "짜증날땐 짜장면" },
+    { title: "짬뽕", image: chinesejjambong, ex: "뽕에 취한다.. 바로.. 짬뽕" },
+    {
+      title: "딤섬",
+      image: chineseDimsum,
+      ex: "절묘한 맛, 섬세한 질감으로 미각을 현혹시킬 한 입 크기의 중국의 별미",
+    },
   ];
   const japaneseItems = [
-    { title: "돈가스", image: meal },
-    { title: "초밥", image: sushi },
-    { title: "우동", image: udon },
+    {
+      title: "돈가스",
+      image: meal,
+      ex: "겉은 바삭하고 속은 부드러운 이게 바로 돈가스",
+    },
+    {
+      title: "초밥",
+      image: sushi,
+      ex: "당신의 입맛을 행복으로 인도할 조화로운 바다의 맛",
+    },
+    {
+      title: "우동",
+      image: udon,
+      ex: "진한 국물과 탄력있는 국수로 만족스러운 음식",
+    },
   ];
   const dessertItems = [
-    { title: "케이크", image: cake },
-    { title: "머핀", image: muffin },
-    { title: "마카롱", image: macaron },
+    { title: "케이크", image: cake, ex: "빵이 없으면 케이크를 먹으면 되지" },
+    {
+      title: "머핀",
+      image: muffin,
+      ex: "촉촉하고 폭신한 식감을 자랑하는 유혹적인 향의 머핀",
+    },
+    {
+      title: "마카롱",
+      image: macaron,
+      ex: "바삭바삭한 껍질, 감미로운 충전재로 감각을 유혹하는 섬세한 프랑스 과자",
+    },
   ];
   const nightItems = [
-    { title: "치킨", image: chicken },
-    { title: "닭발", image: foot },
-    { title: "곱창", image: beef },
+    { title: "치킨", image: chicken, ex: "오늘 저녁은 치킨이닭" },
+    {
+      title: "닭발",
+      image: foot,
+      ex: "풍미, 질감, 그리고 진정으로 잊을 수 없는 미식 경험",
+    },
+    { title: "곱창", image: beef, ex: "소주와 함께" },
   ];
   const renderItem = ({ item }) => (
     <View
@@ -88,6 +136,17 @@ export default function CarouselMenu({ menu }) {
           }}
         >
           {item.title}
+        </Text>
+        <Text
+          style={{
+            marginLeft: 10,
+            marginTop: 8,
+            width: 200,
+            color: "gray",
+            fontWeight: 500,
+          }}
+        >
+          {item.ex}
         </Text>
       </View>
     </View>

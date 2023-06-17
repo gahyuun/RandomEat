@@ -3,7 +3,7 @@ import { Path, Svg } from "react-native-svg";
 
 export default function CategoryMenu({ menu, setMenu }) {
   return (
-    <View style={{ marginLeft: 25, marginTop: 20 }}>
+    <View style={{ marginLeft: 25, marginTop: 20, marginBottom: 5 }}>
       <Text style={[{ fontWeight: 800, fontSize: 20 }, styles.color]}>
         카테고리별 메뉴 추천
       </Text>
