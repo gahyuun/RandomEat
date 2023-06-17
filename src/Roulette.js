@@ -3,6 +3,8 @@ import { useNavigation } from '@react-navigation/native';
 import { useEffect, useState } from 'react';
 import { itemState } from '../state';
 import { useRecoilState, useRecoilValue } from 'recoil';
+import Modal from 'react-native-modal';
+import { Routes } from '../navigator/Routes';
 
 export default function Roulette() {
   const navigation = useNavigation();
@@ -54,6 +56,59 @@ export default function Roulette() {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      {/* 모달 */}
+      <Modal isVisible={true}>
+        <View
+          style={{
+            backgroundColor: '#EDE7FF',
+            width: 350,
+            height: 278,
+            borderRadius: 20,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: 35,
+          }}
+        >
+          <Text style={{ fontWeight: 800, fontSize: 35, color: '#693894' }}>
+            당첨!
+          </Text>
+          <Text style={{ fontWeight: 800, fontSize: 40 }}>박가현</Text>
+          <TouchableOpacity
+            style={{
+              backgroundColor: '#693894',
+              width: 100,
+              height: 50,
+              borderRadius: 20,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              shadowColor: '#ebebeb',
+              shadowOffset: {
+                width: 0,
+                height: 2,
+              },
+              shadowOpacity: 0.25,
+              shadowRadius: 4,
+            }}
+            onPress={() => {
+              navigation.navigate(Routes.RESULT);
+            }}
+          >
+            <Text
+              style={{
+                backgroundColor: '#693894',
+                color: '#ffffff',
+                fontSize: 20,
+                fontWeight: 500,
+              }}
+            >
+              확인
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
+      {/* 룰렛 화면 */}
       <Text
         style={{
           fontWeight: 700,
